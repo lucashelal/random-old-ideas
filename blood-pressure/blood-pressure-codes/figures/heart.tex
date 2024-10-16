@@ -1,0 +1,63 @@
+\documentclass[border=30pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[yscale=1]
+
+ % Draw x and y axis
+    \draw[->] (0,0) -- (9,0) node[right] {};
+    \draw[->] (0,0) -- (0,14) node[above] {};
+    
+    % Draw x ticks and labels
+    \foreach \x in {0,1,2,3,4,5,6,7,8,9}
+        \draw (\x,0.1) -- (\x,-0.1) node[below=10] {\x};
+    
+    % Draw y ticks and labels
+    \foreach \y in {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}
+        \draw (0.1,\y) -- (-0.1,\y) node[left=4] {\y};
+
+ \draw[fill=black] (0,0) circle (0.1);
+\draw[fill=white](0.4,3.236) % cava superior
+    .. controls (.422,4.168) and (.408,5.095) .. (.461,6.046)
+    .. controls (.475,6.228) and (.365,6.400) .. (.379,6.601);
+\draw[fill=white](0.462,11) 
+    .. controls (.473, 12) and (.470,13.436) .. (.4753,14)
+    .. controls (.800,14.16) and (.808,14.13) .. (.830, 14.137)
+    .. controls (.833,14.139) and (.835,14.141) .. (.84, 14.143)
+    .. controls (1,14.235) and (1.22,14.245) .. (1.35, 14.315)
+    .. controls (1.8,14.355) and (1.855,14.320) .. (2, 14.280)
+    --++ (0,-1.55);
+\draw[fill=none, thick] (.303,6.697) % miocardio
+    .. controls (-.161,7.442) and (-.022,9.641) .. (.484,11.118)
+    .. controls (.795,12.022) and (1.297,12.414) .. (2.062,12.801)
+    .. controls (3.429,13.513) and (5.112,13.714) .. (6.598,13.795)
+    .. controls (9.495,13.957) and (9.738,11.735) .. (8.974,8.967)
+    .. controls (8.744,8.126) and (8.123,7.815) .. (7.917,7.222)
+    .. controls (7.683,6.606) and (7.310,5.999) .. (6.598,5.420)
+    .. controls (5.570,4.579) and (1.230,5.210) .. (.303,6.697) ;
+\draw[fill=none] (1.307,3.107)
+    .. controls (1.675,3.107) and (1.976,3.169) .. (1.976,3.250)
+    .. controls (1.976,3.327) and (1.675,3.394) .. (1.307,3.394)
+    .. controls (.934,3.394) and (.633,3.327) .. (.633,3.250)
+    .. controls (.633,3.169) and (.934,3.107) .. (1.307,3.107) ;
+\draw[fill=none] (.461,3.241)% veia cava superior
+    .. controls (.576,3.657) and (2.187,3.657) .. (2.129,3.198) ;
+
+% Draw Feixe de His
+    \draw[thick, red] (5,9)
+        .. controls (8.5,11.6) and (8.5,13) .. (8.5,13);
+
+    % Draw Fibras de Purkinje (right)
+    \draw[thick, blue] (8.5,13)
+        .. controls (1,13.5) and (1,11) .. (0.3,9);
+    \draw[thick, blue] (8.5,13)
+        .. controls (10,12) and (8.6,10) .. (8.3,8);
+
+    \draw[blue] (0,9) arc (240:270:16);
+    \draw[blue] (5,9) arc (180:-120:5);
+
+
+
+
+    \end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,524 @@
+ above. Here is the command line: \vectorfieldcoord{x}{y}{\Delta x}{\Delta y}{label}
+
+% two vectors in 2D and 3D at a given angle - 3D plane
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (3,3,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,0,4) node[right] {$z$};
+\end{tikzpicture}
+
+% summation of vectors in 2D 
+
+\begin{tikzpicture}
+\draw[->] (0,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,0) -- (3,3) node[right] {$y$};
+\draw[->] (0,0) -- (7,3) node[right] {$z$};
+\end{tikzpicture}
+
+% scalar product of vectors in 2D
+
+\begin{tikzpicture}
+\draw[->] (0,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,0) -- (3,3) node[right] {$y$};
+\end{tikzpicture}
+
+% vector product of vectors in 3D
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (3,3,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,0,4) node[right] {$z$};
+\end{tikzpicture}
+
+% vector product of vectors in 3D - 2
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (3,3,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,4,0) node[right] {$z$};
+\end{tikzpicture}
+
+% vector product of vectors in 3D - 3 and including unit vectors
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (3,3,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,0,4) node[right] {$z$};
+\draw[->] (0,0,0) -- (1,0,0) node[right] {$\hat{i}$};
+\draw[->] (0,0,0) -- (0,1,0) node[right] {$\hat{j}$};
+\draw[->] (0,0,0) -- (0,0,1) node[right] {$\hat{k}$};
+\end{tikzpicture}
+
+% vector product of vectors in 3D - 4 and including unit vectors
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (3,3,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,4,0) node[right] {$z$};
+\draw[->] (0,0,0) -- (1,0,0) node[right] {$\hat{i}$};
+\draw[->] (0,0,0) -- (0,1,0) node[right] {$\hat{j}$};
+\draw[->] (0,0,0) -- (0,0,1) node[right] {$\hat{k}$};
+\end{tikzpicture}
+
+% axial vector orientantion in a circle, with 12 vectors - 6 for the north and 6 for the south, each 30 degrees apart, with the circle and its contour
+
+\begin{tikzpicture}
+\draw[fill=lightgray] (0,0) circle [radius=2];
+\draw[->] (0,0) -- (0,2) node[right] {$\hat{z}$};
+\draw[->] (0,0) -- (1.732,1) node[right] {$\hat{y}$};
+\draw[->] (0,0) -- (1,1.732) node[right] {$\hat{x}$};
+\draw[->] (0,0) -- (-1,1.732) node[right] {$\hat{x}$};
+\draw[->] (0,0) -- (-1.732,1) node[right] {$\hat{y}$};
+\draw[->] (0,0) -- (0,-2) node[right] {$\hat{z}$};
+
+
+\newcommand{\dotcoord}[4]{\draw[fill=#3, draw=#4] (#1,#2) circle [radius=#3];}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \dotcoord{foo}{radius}{color}{border color} 
+
+%% -- circle at coordinate (foo), with radius and color and border color
+
+\newcommand{\circlecoord}[4]{\draw[fill=#3, draw=#4] (#1,#2) circle [radius=#3];}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \circlecoord{foo}{radius}{color}{border color}
+
+%% -- rectangle at coordinate (foo), with width, height, color and border color
+
+\newcommand{\rectcoord}[5]{\draw[fill=#4, draw=#5] (#1,#2) rectangle (#1+#3,#2+#3);}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \rectcoord{foo}{width}{height}{color}{border color}
+
+%% -- sphere at coordinate (foo), with side, color and border color, in x,y,z coordinates, as cartesian coordinates and polar coordinates 
+
+% -- cartesian coordinates
+
+\newcommand{\spherecoord}[5]{\draw[fill=#4, draw=#5] (#1,#2,#3) circle [radius=#4];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \spherecoord{x}{y}{z}{side}{color}{border color}
+
+% -- polar coordinates
+
+\newcommand{\spherepolcoord}[4]{\draw[fill=#3, draw=#4] (#1:#2) circle [radius=#3];}
+% to insert as (r:\theta:\phi) --> \spherepolcoord{r}{\theta}{\phi}{color}{border color}
+
+%% -- in 2D plane - angle and arc between two lines/dots, three dots, with fill option, label position, either in (x,y) or (angle:radius) coordinates
+
+% -- angle between two lines
+
+\newcommand{\anglecoord}[6]{\draw[fill=#5] #1 -- #2 arc [start angle=#3, end angle=#4, radius=#6];}
+% where #1,#2,#3,#4,#5,#6 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglecoord{foo1}{foo2}{start angle}{end angle}{color}{radius}
+
+% -- angle between three dots
+
+\newcommand{\anglethreecoord}[6]{\draw[fill=#5] #1 -- #2 -- #3 arc [start angle=#4, end angle=#6, radius=#7];}
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglethreecoord{foo1}{foo2}{foo3}{start angle}{end angle}{color}{radius}
+
+% -- arc between two dots
+
+\newcommand{\arccoord}[5]{\draw[fill=#4] #1 arc [start angle=#2, end angle=#3, radius=#5];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \arccoord{foo1}{start angle}{end angle}{color}{radius}
+
+%% -- in 3D space, frontal plane, transverse plane and longitudinal plane - angle and arc between two or three dots, with fill option, label position, either in (x,y,z) or (angle:radius) coordinates
+
+% -- angle between two dots frontal plane
+
+\newcommand{\anglefrontalcoord}[6]{\draw[fill=#5] #1 -- #2 arc [start angle=#3, end angle=#4, radius=#6];}
+% where #1,#2,#3,#4,#5,#6 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglefrontalcoord{foo1}{foo2}{start angle}{end angle}{color}{radius}
+
+% -- angle between three dots frontal plane
+
+\newcommand{\anglefrontalthreecoord}[6]{\draw[fill=#5] #1 -- #2 -- #3 arc [start angle=#4, end angle=#6, radius=#7];}
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglefrontalthreecoord{foo1}{foo2}{foo3}{start angle}{end angle}{color}{radius}
+
+% -- arc between two dots frontal plane
+
+\newcommand{\arcfrontalcoord}[5]{\draw[fill=#4] #1 arc [start angle=#2, end angle=#3, radius=#5];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \arcfrontalcoord{foo1}{start angle}{end angle}{color}{radius}
+
+% -- angle between two dots transverse plane
+
+\newcommand{\angletransversecoord}[6]{\draw[fill=#5] #1 -- #2 arc [start angle=#3, end angle=#4, radius=#6];}
+% where #1,#2,#3,#4,#5,#6 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \angletransversecoord{foo1}{foo2}{start angle}{end angle}{color}{radius}
+
+% -- angle between three dots transverse plane
+
+\newcommand{\angletransversethreecoord}[6]{\draw[fill=#5] #1 -- #2 -- #3 arc [start angle=#4, end angle=#6, radius=#7];}
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \angletransversethreecoord{foo1}{foo2}{foo3}{start angle}{end angle}{color}{radius}
+
+% -- arc between two dots transverse plane
+
+\newcommand{\arctransversecoord}[5]{\draw[fill=#4] #1 arc [start angle=#2, end angle=#3, radius=#5];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \arctransversecoord{foo1}{start angle}{end angle}{color}{radius}
+
+% -- angle between two dots longitudinal plane
+
+\newcommand{\anglelongitudinalcoord}[6]{\draw[fill=#5] #1 -- #2 arc [start angle=#3, end angle=#4, radius=#6];}
+
+% where #1,#2,#3,#4,#5,#6 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglelongitudinalcoord{foo1}{foo2}{start angle}{end angle}{color}{radius}
+
+% -- angle between three dots longitudinal plane
+
+\newcommand{\anglelongitudinalthreecoord}[6]{\draw[fill=#5] #1 -- #2 -- #3 arc [start angle=#4, end angle=#6, radius=#7];}
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \anglelongitudinalthreecoord{foo1}{foo2}{foo3}{start angle}{end angle}{color}{radius}
+
+% -- arc between two dots longitudinal plane
+
+\newcommand{\arclongitudinalcoord}[5]{\draw[fill=#4] #1 arc [start angle=#2, end angle=#3, radius=#5];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \arclongitudinalcoord{foo1}{start angle}{end angle}{color}{radius}
+
+% 3D plane, spherical coordinates (xyz or r\theta\phi) 
+
+%% cartesian
+
+\newcommand{\spherecartcoord}[5]{\draw[fill=#4, draw=#5] (#1,#2,#3) circle [radius=#4];}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \spherecartcoord{x}{y}{z}{side}{color}{border color}
+
+%% polar
+
+\newcommand{\spherepolcoord}[4]{\draw[fill=#3, draw=#4] (#1:#2) circle [radius=#3];}
+% to insert as (r:\theta:\phi) --> \spherepolcoord{r}{\theta}{\phi}{color}{border color}
+
+% arrows, lines, dashed patterns, colors, fillings, shading, gradients, functions
+%% arrow - label distance is 0.5cm, arrow dist is 0.8cm, stealth, line width is 0.85, black, fill is black, scale is proportional to the document standard; lines should have been an option for less then ultra thin and ultra thick, and the same for arrows; dashed pattern should have different densities of dashed; colors should have different shades of gray, as well as for fillings; colors out of gray scale and out of tikz standard should be defined already. finally, typical functions to be inserted to be plotted in the document should be defined.
+
+%% arrows 
+
+\newcommand{\arrowcoord}[4]{\draw[-stealth, line width=0.85, color=black, fill=black, scale=1] (#1) -- (#2) node[midway, above] {#3};}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \arrowcoord{foo1}{foo2}{label}{color}
+
+%% lines
+
+\newcommand{\linecoord}[3]{\draw[line width=0.85, color=black, fill=black, scale=1] (#1) -- (#2) node[midway, above] {#3};}
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \linecoord{foo1}{foo2}{label}
+
+%% dashed lines
+
+\newcommand{\dashedcoord}[3]{\draw[dashed, line width=0.85, color=black, fill=black, scale=1] (#1) -- (#2) node[midway, above] {#3};}
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \dashedcoord{foo1}{foo2}{label}
+
+%% colors
+
+\definecolor{lightgray}{gray}{0.9} % Light gray
+\definecolor{darkgray}{gray}{0.1} % Dark gray
+\definecolor{lightblue}{rgb}{0.8,0.85,1} % Light blue
+\definecolor{darkblue}{rgb}{0.1,0.2,0.6} % Dark blue
+\definecolor{lightred}{rgb}{1,0.8,0.8} % Light red
+\definecolor{darkred}{rgb}{0.6,0.2,0.2} % Dark red
+% purple, rose gold, skyblue, teal, pink, iron, steel, amethyst, peridot
+%% purple
+
+\definecolor{purple}{rgb}{0.5,0,0.5} % Purple
+
+%% rose gold
+
+\definecolor{rosegold}{rgb}{0.72,0.43,0.47} % Rose gold
+
+%% skyblue
+
+\definecolor{skyblue}{rgb}{0.53,0.81,0.98} % Sky blue
+
+%% teal
+
+\definecolor{teal}{rgb}{0,0.5,0.5} % Teal
+
+%% pink
+
+\definecolor{pink}{rgb}{1,0.75,0.8} % Pink
+
+%% iron
+
+\definecolor{iron}{rgb}{0.56,0.57,0.58} % Iron
+
+%% steel
+
+\definecolor{steel}{rgb}{0.27,0.5,0.7} % Steel
+
+%% amethyst
+
+\definecolor{amethyst}{rgb}{0.6,0.4,0.8} % Amethyst
+
+%% peridot
+
+\definecolor{peridot}{rgb}{0.9,0.9,0.5} % Peridot
+
+%% fillings
+
+\newcommand{\fillingcoord}[3]{\fill[#3] (#1) -- (#2) -- cycle;}
+
+% geometric shapes 
+%% 2D and 3D cylinder
+
+%% 2D cylinder
+
+\newcommand{\cylindercoord}[4]{\draw[fill=#4] (#1) ellipse (#2 and #3) -- ++(0,0,#2) arc (360:180:#2 and #3) -- ++(0,0,-#2) arc (180:360:#2 and #3);}
+
+%% 3D cylinder
+
+\newcommand{\cylindercoord}[5]{\draw[fill=#5] (#1,#2,0) -- (#1,#2,#3) arc (360:180:#3 and #4) -- (#1,-#2,0) arc (180:360:#3 and #4);}
+
+%% cross sectional view of a 2D and 3D cylinder, axial and transverse
+
+%% 2D cross sectional view of a cylinder axial and transverse
+
+\newcommand{\cylinderaxialcoord}[4]{\draw[fill=#4] (#1) ellipse (#2 and #3);}
+
+\newcommand{\cylindertransversecoord}[4]{\draw[fill=#4] (#1) ellipse (#2 and #3);}
+
+%% 3D cross sectional view of a cylinder axial and transverse
+
+\newcommand{\cylinderaxialcoord}[5]{\draw[fill=#5] (#1,#2,0) -- (#1,#2,#3) arc (360:180:#3 and #4);}
+
+\newcommand{\cylindertransversecoord}[5]{\draw[fill=#5] (#1,#2,0) -- (#1,#2,#3) arc (360:180:#3 and #4);}
+
+% curly lines, waves, spirals, helixes, and other shapes
+
+%% curly lines
+
+\newcommand{\curlycoord}[4]{\draw[decorate, decoration={snake, amplitude=1mm, segment length=2mm, post length=1mm}, color=black, line width=0.85] (#1) -- (#2) node[midway, above] {#3};}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \curlycoord{foo1}{foo2}{label}{color}
+
+%% waves
+
+\newcommand{\wavecoord}[4]{\draw[decorate, decoration={coil, segment length=2mm, amplitude=1mm, post length=1mm}, color=black, line width=0.85] (#1) -- (#2) node[midway, above] {#3};}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \wavecoord{foo1}{foo2}{label}{color}
+
+%% spirals
+
+\newcommand{\spiralcoord}[4]{\draw[decorate, decoration={coil, segment length=2mm, amplitude=1mm, post length=1mm}, color=black, line width=0.85] (#1) -- (#2) node[midway, above] {#3};}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \spiralcoord{foo1}{foo2}{label}{color}
+
+%% helixes
+
+\newcommand{\helixcoord}[4]{\draw[decorate, decoration={coil, segment length=2mm, amplitude=1mm, post length=1mm}, color=black, line width=0.85] (#1) -- (#2) node[midway, above] {#3};}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \helixcoord{foo1}{foo2}{label}{color}
+
+% functions (as declared in the environment - \draw and \addplot)
+%% linear function - 1st order
+
+\newcommand{\linearcoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*\x+#4});}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \linearcoord{start}{end}{slope}{intercept}
+
+%% quadratic function - 2nd order
+
+\newcommand{\quadraticcoord}[5]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*\x^2+#4*\x+#5});}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \quadraticcoord{start}{end}{coefficient of x^2}{coefficient of x}{intercept}
+
+%% cubic function - 3rd order
+
+\newcommand{\cubiccoord}[6]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*\x^3+#4*\x^2+#5*\x+#6});}
+% where #1,#2,#3,#4,#5,#6 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \cubiccoord{start}{end}{coefficient of x^3}{coefficient of x^2}{coefficient of x}{intercept}
+
+%% exponential function in the e basis
+
+\newcommand{\exponentialcoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*exp(#4*\x)});}
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \exponentialcoord{start}{end}{coefficient}{exponent}
+
+%% exponential function in the e basis in a power of a negative fraction
+
+\newcommand{\exponentialfraccoord}[5]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*exp(#4*\x^#5)});}
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \exponentialfraccoord{start}{end}{coefficient}{exponent}{fraction}
+
+%% logarithmic function as natural log
+
+\newcommand{\logarithmiccoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{ln(\x)+#3});}
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \logarithmiccoord{start}{end}{intercept}
+
+%% logarithmic function as base 10 log
+
+\newcommand{\logarithmicbasecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{log10(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \logarithmicbasecoord{start}{end}{intercept}
+
+%% ln and log of inverse functions
+
+\newcommand{\logarithmicinversecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{ln(1/\x)+#3});}
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \logarithmicinversecoord{start}{end}{intercept}
+
+\newcommand{\logarithmicbaseinversecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{log10(1/\x)+#3});}
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \logarithmicbaseinversecoord{start}{end}{intercept}
+
+%% modulus function/interrupted function
+
+\newcommand{\moduluscoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{abs(#3*\x+#4)});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \moduluscoord{start}{end}{slope}{intercept}
+
+%% step function
+
+\newcommand{\stepcoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*int(\x-#4)});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \stepcoord{start}{end}{slope}{intercept}
+
+%% square root function
+
+\newcommand{\squarerootcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{sqrt(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \squarerootcoord{start}{end}{intercept}
+
+%% sin, cos, tg, cotg, cossec, secant functions
+
+\newcommand{\sinecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{sin(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \sinecoord{start}{end}{intercept}
+
+\newcommand{\cosinecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{cos(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \cosinecoord{start}{end}{intercept}
+
+\newcommand{\tangentcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{tan(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \tangentcoord{start}{end}{intercept}
+
+\newcommand{\cotangentcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{cot(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \cotangentcoord{start}{end}{intercept}
+
+\newcommand{\cossecantcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{cosec(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \cossecantcoord{start}{end}{intercept}
+
+\newcommand{\secantcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{sec(\x)+#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \secantcoord{start}{end}{intercept}
+
+%% arctg, arcsin, arccos, sinh, cosh, tgh
+
+\newcommand{\arctangentcoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{atan(\x)+#3});}
+
+\newcommand{\arcsinecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{asin(\x)+#3});}
+
+\newcommand{\arccosinecoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{acos(\x)+#3});}
+
+\newcommand{\sinushyperboliccoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{sinh(\x)+#3});}
+
+\newcommand{\cosinushyperboliccoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{cosh(\x)+#3});}
+
+\newcommand{\tangenthyperboliccoord}[3]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{tanh(\x)+#3});}
+
+% parametric functions
+
+\newcommand{\parametriccoord}[4]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({#3},{#4});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \parametriccoord{start}{end}{x(t)}{y(t)}
+
+% polar functions
+
+\newcommand{\polarcoord}[3]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({\t r}:{#3});}
+
+% where #1,#2,#3 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \polarcoord{start}{end}{r(\theta)}
+
+% complex functions in argand gauss plane
+
+\newcommand{\complexcoord}[3]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({#3},{#4});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \complexcoord{start}{end}{Re(z)}{Im(z)}
+
+% parametric functions in 3D space
+
+\newcommand{\parametriccoord}[5]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({#3},{#4},{#5});}
+
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \parametriccoord{start}{end}{x(t)}{y(t)}{z(t)}
+
+% polar functions in 3D space
+
+\newcommand{\polarcoord}[4]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({\t r}:{#3},{#4});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \polarcoord{start}{end}{r(\theta)}{z}
+
+% complex functions in 3D space
+
+\newcommand{\complexcoord}[4]{\draw[domain=#1:#2, smooth, variable=\t, color=black, line width=0.85] plot ({#3},{#4},{#5});}
+
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \complexcoord{start}{end}{Re(z)}{Im(z)}{z}
+
+% taylor series
+
+\newcommand{\taylorcoord}[5]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3+#4*\x+#5*\x^2});}
+
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \taylorcoord{start}{end}{intercept}{slope}{curvature}
+
+% fourier series
+
+\newcommand{\fouriercoord}[5]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3+#4*sin(\x r)+#5*cos(\x r)});}
+
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \fouriercoord{start}{end}{intercept}{sinusoidal}{cosinusoidal}
+
+% laplace transform
+
+\newcommand{\laplacecoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*exp(-#4*\x)});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \laplacecoord{start}{end}{coefficient}{exponent}
+
+% z transform
+
+\newcommand{\ztransformcoord}[4]{\draw[domain=#1:#2, smooth, variable=\x, color=black, line width=0.85] plot ({\x},{#3*exp(-#4*\x)});}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \ztransformcoord{start}{end}{coefficient}{exponent}
+
+% vector fields
+%% 2D vector fields - perpendicular and parallel to the x and y axis
+
+\newcommand{\vectorfieldcoord}[5]{\draw[->, color=black, line width=0.85] (#1,#2) -- (#1+#3,#2+#4) node[midway, above] {#5};}
+
+% where #1,#2,#3,#4,#5 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \vectorfieldcoord{x}{y}{\Delta x}{\Delta y}{label}
+
+%% 3D vector fields - perpendicular and parallel to the x, y, and z axis
+
+\newcommand{\vectorfieldcoord}[6]{\draw[->, color=black, line width=0.85] (#1,#2,#3) -- (#1+#4,#2+#5,#3+#6) node[midway, above] {#7};}
+
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \vectorfieldcoord{x}{y}{z}{\Delta x}{\Delta y}{\Delta z}{label}
+
+% vector fields in 3D space
+
+\newcommand{\vectorfieldcoord}[6]{\draw[->, color=black, line width=0.85] (#1,#2,#3) -- (#1+#4,#2+#5,#3+#6) node[midway, above] {#7};}
+
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \vectorfieldcoord{x}{y}{z}{\Delta x}{\Delta y}{\Delta z}{label}
+
+% vector fields in 3D space - cylindrical coordinates
+
+\newcommand{\vectorfieldcoord}[6]{\draw[->, color=black, line width=0.85] (#1,#2,#3) -- (#1+#4,#2+#5,#3+#6) node[midway, above] {#7};}
+
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \vectorfieldcoord{r}{\theta}{z}{\Delta r}{\Delta \theta}{\Delta z}{label}
+
+%% gauss vector field of a closed surface
+
+\newcommand{\gaussvectorfieldcoord}[6]{\draw[->, color=black, line width=0.85] (#1,#2,#3) -- (#1+#4,#2+#5,#3+#6) node[midway, above] {#7};}
+
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \gaussvectorfieldcoord{x}{y}{z}{\Delta x}{\Delta y}{\Delta z}{label}
+
+% stokes vector field of a closed curve
+
+\newcommand{\stokesvectorfieldcoord}[6]{\draw[->, color=black, line width=0.85] (#1,#2,#3) -- (#1+#4,#2+#5,#3+#6) node[midway, above] {#7};}
+
+% where #1,#2,#3,#4,#5,#6,#7 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \stokesvectorfieldcoord{x}{y}{z}{\Delta x}{\Delta y}{\Delta z}{label}
+
+% figures and diagrams
+
+% 2D and 3D figures and diagrams
+%% vector orientation in 2D and 3D planes with annotations, labels and axis - 2D plane
+\begin{tikzpicture}
+\draw[->] (0,0) -- (4,0) node[right] {$x$};
+\end{tikzpicture}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command above. Here is the command line: \vectorfieldcoord{x}{y}{\Delta x}{\Delta y}{label}
+
+%% vector orientation in 2D and 3D planes with annotations, labels and axis - 3D plane
+
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};
+\draw[->] (0,0,0) -- (0,4,0) node[right] {$y$};
+\draw[->] (0,0,0) -- (0,0,4) node[right] {$z$};
+\end{tikzpicture}
+
+% two vectors in 2D and 3D at a given angle - 2D plane
+
+\begin{tikzpicture}
+\draw[->] (0,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,0) -- (3,3) node[right] {$y$};
+\end{tikzpicture}
+
+% where #1,#2,#3,#4 are parameters as follows, and defined in this exact manner to use in the tikzpicture environment command
+\end{tikzpicture}
+
+
+

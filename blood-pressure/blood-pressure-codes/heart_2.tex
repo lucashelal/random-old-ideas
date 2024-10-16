@@ -1,0 +1,52 @@
+\documentclass[border=6cm]{standalone}
+%
+% File name: concave-down-paraboloid.tex
+% Description: 
+% The graph of the surface
+% z = 1 - x^{2} - y^{2}
+% for z >= 0 is generated. Also, the region x^2 + y^2 \leq 1
+% is shown.
+% 
+% Date of creation: April, 23rd, 2022.
+% Date of last modification: April, 23rd, 2022.
+% Author: Efraín Soto Apolinar.
+% https://www.aprendematematicas.org.mx/author/efrain-soto-apolinar/instructing-courses/
+% Terms of use:
+% According to TikZ.net
+% https://creativecommons.org/licenses/by-nc-sa/4.0/
+% 
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{tikz-3dplot}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{1pt}
+%
+\begin{document}
+	%
+	\tdplotsetmaincoords{45}{45}
+	\begin{tikzpicture}[tdplot_main_coords,scale=2.0]
+		\pgfmathsetmacro{\tini}{0.5*pi}
+		\pgfmathsetmacro{\tfin}{-0.5*pi}
+		\pgfmathsetmacro{\tend}{2.5*pi}
+		%%% Coordinate axis
+		\draw[thick,->] (2.3,-0.20,0.8) -- (5.5,0.05,0.8) node [below left] {\footnotesize$x$};
+		\draw[dashed] (1,-0.20,0.5) -- (2.5,0,0.5);
+		\draw[thick,->] (3.4,-2,1) -- (3.4,1.8,1) node [right] {\footnotesize$y$};
+		\draw[dashed] (3.4,0,0) -- (3.4,0,-1);
+		\draw[thick,->] (3.4,0,0) -- (3.4,0,3.5) node[above] {\footnotesize$z$};
+
+       
+  
+		% The paraboloid (for z = constant)
+		\foreach \altura in {0.0125,0.025,...,1}{
+			\pgfmathparse{sqrt(\altura)}
+			\pgfmathsetmacro{\radio}{\pgfmathresult}
+			\draw[black,thick,opacity=1] plot[domain=\tini:\tfin,smooth,variable=\t] ({2+\radio*1.8*cos(\t r)},{\altura-0.2},{\radio*sin(\t r-1)}); 
+        \draw[gray!90!black!70,thick,fill=white!70!black!10,opacity=1] plot[domain=\tini:\tfin,smooth,variable=\t] ({2+\radio*1.8*cos(\t r)},{\altura-0.2},{\radio*sin(\t r-1)}); 
+		}
+
+     \draw[ultra thick,->] (1,-0.3,0.8) -- (4.5,1.5,-1);
+
+	\end{tikzpicture}
+\end{document}

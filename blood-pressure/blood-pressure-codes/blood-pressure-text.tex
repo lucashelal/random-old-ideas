@@ -1,0 +1,198 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[top=2cm,bottom=2cm,left=2cm,down=2cm,a4]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\tikzset{>=latex} % for LaTeX arrow head
+\contourlength{1.35pt}
+
+\newlist{itemize}{itemize}{1}
+\setlist[itemize]{
+    itemindent=-0.6cm,
+    label=$\circ$,
+}
+
+\newlist{enumerate}{enumerate}{1}
+\setlist[enumerate]{
+    itemindent=-0.4cm,
+    label=$\rightarrow$,
+}
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\section*{Sangue e Tecido Conjuntivo}
+
+\subsection*{Propriedades do Sangue Arterial}
+
+\subsubsection*{Composição}
+
+\begin{enumerate}
+    \item 45 \% elementos figurados (hemácias, leucócitos e plaquetas)
+    \item 55 \% plasma (matriz extracelular)
+\end{enumerate}
+
+\subsubsection*{Viscosidade} 
+
+A viscosidade do sangue é uma medida de resistência à deformação em uma dada taxa. Alguma literatura descreve como o balanço entre a espessura e a elasticidade do fluido. Determina parâmetros importantes como a fricção sobre a parede arterial; o trabalho miocárdico; o $V\text{O}_{\mathrm{2}}$ periférico; a \emph{resistência vascular}; \emph{pré e pós carga}; \emph{perfusão}; e a \emph{\textbf{pressão arterial}}.\\
+
+A viscosidade $\mu$ do sangue humano a 37 $^\text{o}$C é usualmente $\approx 3,5 \cdot 10^{-3} \ \ \text{Pa}\cdot{{\text{s}}^{-1}}$. Assumindo densidade $rho \approx 3,5 cP$, tem-se a viscosidade cinemática $\nu$ aproximada:
+
+\begin{equation*}
+    \nu = \cfrac{\mu}{\rho} \approx 3,5 \cdot 10^{-6} \cfrac{m^2}{s}
+\end{equation*}
+
+Os determinantes primários da viscosidade sanguínea são:
+
+\begin{enumerate}
+    \item Viscosidade do plasma
+    \begin{itemize}
+        \item $\implies$ $\left[\text{H}_\mathrm{2}\text{O}\right]$
+        \item $\implies$ $\left[\text{DNA + RNA + PTN + mRNA + CHO + POLY + \ \dots}\right]$
+    \end{itemize}
+    \item Hematócrito (\% de hemácias no volume total de plasma)
+    \begin{itemize}
+        \item Valores de normalidade: $40,7 \to 50,3 \%$ para homens e $36,0 \to 44,3 \%$ para mulheres
+        \item Traduz a capacidade que o sistema corpóreo tem de entregar O$_2$ aos tecidos
+        \item É composto histoquimicamente pela hemoglobina (Hb) em g/dL
+        \item Tem o \textbf{maior impacto} na viscosidade total 
+        \item Para uma variação unitária no Ht $x_1 - x_0 = 1$, há um aumento na viscosidade $y = 4 \%$, para Ht $40 \ - \ 50 \%$
+        \item Em valores anormais (Ht $\ge 60 \%$), $x_1 - x_0 \implies \uparrow 10 \%$
+    \end{itemize}
+\end{enumerate}
+\subsubsection*{Propriedades mecânicas das hemácias}
+
+Considera-se um fluido não-Newtoniano; \\
+
+Implica na influência da taxa de cisalhamento/gradiente de velocidade do mesmo $\longrightarrow$ quanto maior o gradiente, menor a viscosidade; \\
+
+Pico sistólico ou exercício; \\
+
+A viscosidade aumenta com a taxa de agregação das células vermelhas (influência plaquetária);
+
+\newpage
+
+\begin{equation}
+    \mu \sim \text{Ht} \cdot \dot \gamma \nonumber
+\end{equation}
+
+onde $\mu$ é a viscosidade e $\dot \gamma$ é o taxa de cisalhamento. A força de cisalhamento $\tau$ é dada por: \\
+
+\begin{equation*}
+    \tau = \mu_{\text{eff}} (\dot \gamma) \dot \gamma
+\end{equation*}
+
+para um fluido não-Newtoniano generalizado (não-linear), onde $\mu_{\text{eff}}$ é a viscosidade aparente. \\
+
+\subsubsection*{O Problema do Sangue como Fluido Não-Newtoniano}
+
+Para determinar a viscosidade do sangue, não há um modelo que governe seu comportamento, principalmente pela natureza não-linear/não-Newtoniana do sangue. Dessa maneira, a \textbf{terceira equação de Maxwell}, que é a \textbf{Lei de Faraday para Força Eletromotriz por Indução Eletromagnética} pode ser mimetizada para aproximar a \emph{a força motriz} no fluido não-Newtoniano:
+
+\begin{align*}
+    \rho \left [ \cfrac{\partial V}{\partial t} + (V \cdot \nabla)V \right] =           \nabla \cdot T + J \times \beta& \\[16pt]
+    \nabla \cdot V = \nabla \cdot \beta = \nabla \times \beta = \mu_m J& \\[10pt]
+    \nabla \times E + \cfrac{\partial \beta}{\partial t} = 0& \\[10pt]
+    \nabla \times E = - \cfrac{\partial \beta}{\partial t}& \\[10pt]
+    J = \sigma E& \\[16pt]
+    \mathbf{J} \times \beta = -\sigma \beta_0^2
+\end{align*} \\
+onde $V$ é o módulo do vetor velocidade; $rho$ a densidade; $J$ a densidade das partículas; $\beta$ o campo vetorial total velocidade; $\mu$ a permeabilidade; $E$ o campo vetorial de tensão de cisalhamento; e $sigma$ a resistência vascular periférica. \\
+
+\newpage
+\subsubsection*{Viscosidade Modelada por GLMM}
+
+Com o uso de modelos lineares generalizados, há um modelo que sugere a viscosidade sanguínea em função da taxa de cisalhamento por meio de uma \textbf{função de distribuição} que assume propriedades \textbf{transcendentais}:
+
+\begin{equation*}
+    \eta (\gamma^0) = \eta_{\infty} + (\eta_0 - \eta_{\infty}) {\cfrac{\left[1 + log(1 + \Lambda \gamma^0)\right]}{(1 + \Lambda \gamma^0)}
+\end{equation*}
+
+onde $\Lambda$ é uma constante temporal; $\gamma^0$ é a taxa de cisalhamento; a viscosidade aparente é $\eta$. \emph{Considerando} que a tensão de cisalhamento é a energia transferida para a \emph{parede arterial} por interação com o fluido em movimento:
+
+\begin{equation*}
+    T = \eta \times \gamma^0
+\end{equation*}
+
+onde $T$ é a tensão de cisalhamento, e a taxa de cisalhamento $\gamma$ pode ser lida como $\cfrac{\partial v (r)}{\partial r}$, associada com a velocidade de fluxo.
+
+\subsection*{Propriedades Elásticas do Sangue}
+
+O sangue humano é viscoelástico, implicando em interação entre energia mecânica e cinética em função do tempo. \emp{O modelo de Maxwell} para continuidade e equações de conservação se aplica: \textbf{o sangue é complexo com componentes discontínuos em seu volume. Tem tamanho e forma irregulares, também as células vermelhas não estão normalmente distribuídas pelo volume dos vasos, implicando em gradientes de velocidade e pressão}. O modelo de Maxwell tem limitações. \\
+
+A presença de uma força $\vec{F}$, que se soma ao vetor velocidade $\vec{v}$, deforma o fluido de maneira que a parte que toca a parede interior da camada íntima exerce resistência, \emph{exigindo} da componente elástica do fluido e de tensão. A força $\vec{F}$, em condições normais, vem do \textbf{pulso cardíaco}. \\
+
+Dessa forma, a tensão de cisalhamento é: %%% FIGURA 
+
+\begin{equation*}
+    \tau = \cfrac{F}{A}
+\end{equation*}
+
+A deformação é:
+
+\begin{equation*}
+    \gamma = \cfrac{d}{\overline h}
+\end{equation*}
+
+E o fluxo de cisalhamento é:
+
+\begin{equation*}
+    \dot \gamma = \cfrac{v}{\overline h}
+\end{equation*} \\
+
+onde, $F$ é a força; $A$ é a área; $d$ é o deslocamento; $\overline h$ é a altura; e $v$ é a velocidade.
+
+\subsubsection*{Pulso Cardíaco Sobre o Sangue}
+
+Para cada pulso cardíaco, há uma sístole ventricular e diástole subsequente. Na sístole, o volume de sangue por unidade de tempo e área expulsado do coração é máximo nas artérias, sendo o contrário verdadeiro para a diástole. \\ 
+
+Desta forma, há uma deformação dada $\vec{F}_i$ em uma dada área $\text{d}A$ e num dado tempo $\text{d}t$, com comportamento \emph{senoidal} e variação de fase $phi$ entre $\tau$ e $\gamma$. Se $\phi=0$, o material é puramente elástico já que estresse e deformação \textbf{não estão defasados}. Se $\phi=90 ^\circ$, o material é puramente viscoso dada a defasagem entre estresse e deformação. \\
+
+A variação temporal é proporcional a {$\mathbf{e^{i \omega t}}$, com $\mathbf{\omega = 2 \pi f}$}: \\[8pt]
+
+\textbf{Shear Stress}:\\
+
+\begin{equation*}
+    \tau^{*} = \tau e^{-i \phi}
+\end{equation*} \\
+
+\textbf{Shear Strain}:\\
+
+\begin{equation*}
+    \gamma^{*} = \gamma e ^{-i \cfrac{\pi}{2}}
+\end{equation*} \\
+
+\textbf{Shear Rate}: \\
+
+\begin{equation*}
+    \dot \gamma^{*} = \dot \gamma e^{-i 0}
+\end{equation*}
+
+Então:
+
+\begin{equation*}
+    \tau^{*} = \tau ^ \prime - i \cdot \tau ^ {\prime \prime}
+\end{equation*}
+
+onde $\tau ^\prime$ é o estresse causado pela viscosidade; e $\tau ^{\prime \prime}$ o estresse elástico.
+
+\end{document}

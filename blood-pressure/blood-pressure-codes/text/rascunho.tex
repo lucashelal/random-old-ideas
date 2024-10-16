@@ -1,0 +1,178 @@
+
+
+
+
+
+\section{Blood Pressure}
+
+\begin{itemize}
+    \item Force unit per area exerted by the blood in the arterial walls
+    \item Can be a function of \textbf{time}
+    \item Can be a function of \textbf{distance}
+    \item Can be a function of \textbf{either}
+    \item Gravity effect is often ignored but is present
+\end{itemize}
+
+Systolic blood pressure is achieved during systole; diastolic, during diastole. 
+
+\subsection{Blood Pressure as a Function of Pressure Gradients}
+
+An artery can be modelled as a \emph{resistor}, if the: \textbf{the radius is constant, and blood flow is $\varpropto$ linearly to the pressure drop}. 
+
+\begin{equation}
+    Q = \cfrac{\Delta P}{R}
+\end{equation}
+
+begin the numerator the pressure drop and R the resistance. 
+
+\subsubsection{Relationship Between Artery Radius and Blood Pressure}
+
+The fluid moves slowly and steady at a fixed radius. The \emph{fluid velocity} is described by a vector u with axial, radial and angular components - $\vec{u} = \sum \vec{u} \text{components}$. It is an incompressible fluid, then:
+
+\begin{equation}
+    \nabla \cdot \vec{u} = 0
+\end{equation}
+
+Also, \emph{momentum is conserved}, then, Navier-Stokes equation plays:
+
+\begin{equation}
+    \rho (\vec{u}_t + \vec{u} \cdot \nabla \vec{u}) = - \nabla P + \mu \nabla^2 \vec{u}
+\end{equation}
+
+
+\newpage
+
+\subsection{Average Values}
+
+
+\begin{table}[h!] % REF - Irving
+    \centering
+    \begin{tabularx}{\linewidth}{X X R}
+    \hline \\
+    \textbf{Local} & $P \ (mmHg)$    & $V \ (L)$ \\ \\
+    \hline 
+                      &     &    \\[2pt] 
+    Systemic Arteries & 100 & 1.0 \\[6pt]
+    Systemic Veins & 2 & 3.5 \\[6pt]
+    Pulmonary Arteries & 15 & 0.1 \\[6pt]
+    Pulmonary Veins & 5 & 0.4 \\[12pt]
+    \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{At rest:}
+
+\begin{enumerate} % REF - Irving 
+    \item 12 \% V from heart chambers;
+    \item 2 \% V aorta;
+    \item 8 \% arteries;
+    \item 1 \% arterioles;
+    \item 5 \% capillaries;
+    \item 50 \% systemic veins;
+    \item 18 \% pulmonary circulation.
+\end{enumerate}
+
+\textbf{Small Arteries:}
+
+\begin{equation}
+    d \approx \cfrac{25}{\ell}
+\end{equation}
+
+\begin{table}[h!] % REF - Irving
+    \centering
+    \begin{tabularx}{\textwidth}{X X X X X}
+    \toprule
+    \textbf{Local} & $\overline{d} \ (mm)$    & $\ell \ (mm)$ & $\omega \ (\mu m$) & P (mmHg) \\[3pt] 
+    \hline\\[0.5pt] 
+    Aorta & 25.0 & 400 & 1,500 & 100 \\[6pt]
+    Large Arteries & 6.5 & 200 & 1,000 & 100 \\[6pt]
+    Arterioles & 0.1 & 2 & 20 & 60 \\[6pt]
+    Capillaries & 0.008 & 1 & 1 & 30 \\[12pt]
+    \midrule
+    \textbf{Local} & N$^o$ & $\ell_t$ (mm) & $S_t$ (mm$^2$) & $V_{t | \text{blood}}$ (mm$^3$)\\
+    \midrule 
+    Aorta & 1 & 400 & 31,400 & 200,000 \\[6pt]
+    Large Arteries & 40 & 8,000 & 163,000 & 260,000 \\[6pt]
+    Arterioles & 4,500,000 & 9,000,000 & 2,800,000 & 70,000 \\[6pt]
+    Capillaries & $19 \times 10^9$ & $19 \times 10^9$ & $29,8 \times 10^7$ & $375,000$ \\[12pt]
+    \bottomrule
+    \end{tabularx}
+\end{table}
+\newpage
+
+\textbf{Radius of arteries} \\
+
+\begin{enumerate}
+    \item Ascending aorta: length = 4cm, bradius = 1.525cm, eradius=1.420cm \\
+    \item Thoraric aorta: 16cm, 1.240cm, 0.92cm \\
+    \item Abdominal aorta: 28.75, 0.924, 0.550 \\
+    \item Brachial: 39.75, 0.407, 0.250 \\
+    \item Femoral: 58.75, 0.370, 0.200.
+\end{enumerate} \\
+\vspace{1em}
+\textbf{Relationship and parent and daughter arteries} \\
+
+\begin{equation}
+    r^{\zeta}_{p} = r^(\zeta)_{d1} + r^{\zeta}_{d2}
+\end{equation} \\
+
+given $\zeta = 2.76, \ \gamma = (r_{d2}/r_{d1})^2 = 0.41$, and $\eta = (r^2_{d1} + r^2_{d2}/r^2_{p} = 1.16$. %%% ver 8.34-8.37 do Irving
+
+\newpage
+\subsection{Cardiac Cycle}
+
+\begin{enumerate}
+    \item Right and left heart work exactly at the same time to keep $Q$ equal to both systems;
+    \item There is a delay between chambers: if $t = 0$ for left, there will be $t + dt$ for right, for a given pulse
+    \item Then, the delay move forward at the same rate $dt$ but increasing its baseline magnitude - $\tau + dt, 2 \tau + dt, \cdots$
+
+    \item There is a pacemaker at the SN that sends electrical signal periodically to govern the cycle 
+    \item There is also another pacemaker at the atrium-ventricular juntion (AV node), delayed by a time $t$
+\end{enumerate}
+
+\subsubsection{Algebraic Representation of SA and AV node frequencies and periods}
+
+The clock frequency $f$ and the period $T$ are quantified as: a) events per second (Hz or s$^{-1}$; and the period, which is the time necessary for a given system to accomplish two consecutive events, and is the inverse of $f = \cfrac{1}{T}$, in seconds. Applied to the SA and AV node, which are auto-excitable, we have as follows.
+
+\subsubsection*{SA Node}
+\vspace{1em}
+
+\emph{Dirac's delta function} \\
+
+The SA Node is known by its capacity to generate rythimic electric pulses in the heart by itself, initiating the cardiac cycle. \\
+
+If the frequency of SA node is $f_{SA}$ and the period $T_{SA}$, the relationship is $f_{SA} = \cfrac{1}{T_{SA}}$. \\
+
+The electrical pulse seems to be a \textbf{periodic function}, and the pulse a \textbf{discrete event}. To do so, we can handle a \emph{Dirac's delta function} to represent pulses over time:
+
+\begin{equation}
+    \delta(t - t_n)
+\end{equation}
+
+where $t - t_n$ are the timing of two different pulses. \\
+
+\emph{Differential Representation} \\
+
+If we handle pulses as continuous signals, we should consider a function of fase $\phi_{SA} (t)$. For any complete cycle in $\phi_{SA}$ there is a rise in itself of $2 \pi$. Then: \\
+
+\begin{enumerate}
+    \item The instantaneous pulse frequency $f_{SA} (t)$ is the derivative of the phase: $f_{SA} (t) = \cfrac{1}{2 \pi} \cfrac{d \phi_{SA}(t)}{dt}$ \\
+    \item The phase-pulse relationship can be modelled as: $\phi_{SA} (t) = 2\pi f_{SA}t + \vartheta$, where $\vartheta$ is the initial phase.
+\end{enumerate} \\
+
+
+\emph{Average Period and Integrals} \\
+
+If we wanna get the average pulse frequency over a given time interval, then the frequency function could be a defined integral over $t_1,t_2$: \\
+
+\begin{equation}
+    \overline {f}_{SA} = \cfrac{1}{t_2 - t_1} \int_{t_1}^{t_2} f_{SA} (t) dt
+\end{equation}
+
+This glues with an example of differential equation which governs the pulse frequency dynamics, from \emph{Biomedics Engineering}, which considers multiple factors to model `--
+
+\begin{equation}
+    \cfrac{d f_{SA} (t)}{dt} = \alpha(f_{SA}(t) - f_{SA,0}
+\end{equation}
+
+where $\alpha$ is a constant which describes the rate of adjusment of the frequency; $f_{SA,0}$ is the basal or rest frequency of the SA node.
